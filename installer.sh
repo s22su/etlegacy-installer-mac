@@ -1,0 +1,31 @@
+#!/bin/bash
+
+set -eux
+
+echo "Downloading ETLegacy"
+wget https://www.etlegacy.com/download/file/233 -O etlegacy.tar.gz
+
+echo "Extracting ETLegacy"
+tar -xzf etlegacy.tar.gz
+mv etlegacy-v2.77-OSX ETLegacy
+
+echo "Extracted to ./ETLegacy"
+
+echo "Downloading SplashDamage WolfET"
+wget https://cdn.splashdamage.com/downloads/games/wet/WolfET.2.60d.dmg -O WolfETSpalshDamage.dmg
+
+echo "Converting downloaded .dmg -> .cdr to remove license"
+hdiutil convert -quiet WolfETSpalshDamage.dmg -format UDTO -o WolfETSpalshDamageNoLicence
+
+echo "Mounting .cdr"
+hdiutil attach -quiet -nobrowse -noverify -noautoopen -mountpoint WolfETImage WolfETSpalshDamageNoLicence.cdr
+echo "Mounted to ./WolfETImage"
+
+echo "Copying *.pk3 files from WolfETImage -> ETLegacy"
+cp ./WolfETImage/Wolfenstein\ ET/etmain/*.pk3 ./ETLegacy/etmain/
+
+echo "Creating symlink"
+ln -s ./ETLegacy/etl.app ./StartETLegacy.app
+
+echo "DONE! To start the game run this command:"
+echo "open StartETLegacy.app"
