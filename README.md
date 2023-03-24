@@ -1,8 +1,10 @@
-# ETLegacy: Installer for Mac OS Big Sur
+# ETLegacy: Installer for MacOS Ventura
 
 Downloads binaries from [ETLegacy.com](https://www.etlegacy.com/) and original WolfET from
 [SplashDamage](https://www.splashdamage.com/games/wolfenstein-enemy-territory/). Does some magic
 so you can just click on `StartETLegacy.app` and enjoy the game.
+
+Tested on Apple M1 Pro and MacOS Ventura 13.2.1
 
 ## Usage
 

@@ -3,11 +3,11 @@
 set -eux
 
 echo "Downloading ETLegacy"
-wget https://www.etlegacy.com/download/file/259 -O etlegacy.tar.gz
+wget https://www.etlegacy.com/download/file/556 -O etlegacy.tar.gz
 
 echo "Extracting ETLegacy"
 tar -xzf etlegacy.tar.gz
-mv etlegacy-v2.77.1-macOS ETLegacy
+mv etlegacy-v2.81.1-macOS ETLegacy
 
 echo "Extracted to ./ETLegacy"
 
